@@ -33,8 +33,11 @@ char change(char c)
         case 'W':
         case 'X':
         case 'Y': return '9';
+        default: return 0;
     }
 }
+
+// this is a test
 
 int main()
 {

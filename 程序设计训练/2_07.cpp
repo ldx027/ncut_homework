@@ -1,16 +1,38 @@
 #include <iostream>
 #include <string>
-#include <cmath>
 using namespace std;
 
-bool check(int x)
+string mul(string str, int n)
 {
-    string str = std::to_string(x);
-    str = str + str + str;
-
-    for (int i = 1; i <= log10(x) + 1; i++)
+    for (int i = 0; i < str.size(); i++)
     {
-        if (str.find(std::to_string(x * i)) == string::npos) return false;
+        str[i] = (str[i] - '0') * n + '0';
+    }
+    if (str[0] > '9')
+        str = '0' + str;
+    for (int i = str.size() - 1; i > 0; i--)
+    {
+        if (str[i] > '9')
+        {
+            str[i - 1] += (str[i] - '0') / 10;
+            str[i] = (str[i] - '0') % 10 + '0';
+        }
+    }
+
+    return str;
+}
+
+bool cyclic(string str)
+{
+    int N = str.size();
+    string cycle = str + str + str;
+    for (int i = 1; i <= N; i++)
+    {
+        if (cycle.find(mul(str, i)) == string::npos)
+        {
+            cout << str << " " << i << " " << mul(str, i) << endl;
+            return false;
+        }
     }
 
     return true;
@@ -25,17 +47,17 @@ int main()
     int N;
     cin >> N;
 
+    string str;
     while (N--)
     {
-        string x;
-        cin >> x;
-        if (check(x.))
+        cin >> str;
+        if (cyclic(str))
         {
-            cout << x << " is cyclic" << endl;
+            cout << str << " is cyclic" << endl;
         }
-        else 
+        else
         {
-            cout << x << " is not cyclic" << endl;
+            cout << str << " is not cyclic" << endl;
         }
     }
 

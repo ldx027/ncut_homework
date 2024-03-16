@@ -22,6 +22,8 @@ string mul(string str, int n)
     return str;
 }
 
+// this is a test
+
 bool cyclic(string str)
 {
     int N = str.size();

@@ -9,14 +9,14 @@ struct Node
     int n = 0;
 };
 
-bool cmp(Node &a, Node &b)
+bool cmp(const Node &a, const Node &b)
 {
     return a.n > b.n;
 }
 
 inline int byRoad(Node a, Node b)
 {
-    return a.x + b.x;
+    return a.x + b.x + 2;
 }
 
 inline int byJmp(Node a, Node b)
@@ -50,9 +50,9 @@ int main()
         int time = vec[0].x; 
         int total = 0;
 
-        for (int i = 0; i < vec.size() && time + vec[i].x <= K; i++)
+        for (int i = 0; i < vec.size() && time + 1 + vec[i].x <= K; i++)
         {
-            K -= time;
+            K -= time + 1;
             total += vec[i].n;
             time = min(byRoad(vec[i], vec[i + 1]), byJmp(vec[i], vec[i + 1]));
         }

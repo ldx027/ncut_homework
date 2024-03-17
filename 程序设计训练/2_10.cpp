@@ -37,7 +37,7 @@ int main()
     {
         int M, N, K;
         cin >> M >> N >> K;
-
+        
         vector<Node> vec(N * M + 1);
         for (int i = 0; i < M; i++) for (int j = 0; j < N; j++)
         {
@@ -47,10 +47,10 @@ int main()
         }
         sort(vec.begin(), vec.end(), cmp);
 
-        int time = vec[0].x; 
+        int time = vec[0].x + 1; 
         int total = 0;
 
-        for (int i = 0; i < vec.size() && time + 1 + vec[i].x <= K; i++)
+        for (int i = 0; i < vec.size() - 1 && time + 2 + vec[i].x <= K; i++)
         {
             K -= time + 1;
             total += vec[i].n;

@@ -9,20 +9,13 @@ struct Node
     int n = 0;
 };
 
-bool cmp(const Node &a, const Node &b)
-{
-    return a.n > b.n;
-}
+int abs(int x) { return x > 0 ? x : -x; }
 
-inline int byRoad(Node a, Node b)
-{
-    return a.x + b.x + 2;
-}
+bool cmp(const Node &a, const Node &b) { return a.n > b.n; }
 
-inline int byJmp(Node a, Node b)
-{
-    return abs(a.x - b.x) + abs(a.y - b.y);
-}
+inline int byRoad(Node a, Node b) { return a.x + b.x + 2; }
+
+inline int byJmp(Node a, Node b) { return abs(a.x - b.x) + abs(a.y - b.y); }
 
 int main()
 {
@@ -47,14 +40,14 @@ int main()
         }
         sort(vec.begin(), vec.end(), cmp);
 
-        int time = vec[0].x + 1; 
+        int time = vec[0].x + 1 + 1; 
         int total = 0;
 
-        for (int i = 0; i < vec.size() - 1 && time + 2 + vec[i].x <= K; i++)
+        for (int i = 0; i < vec.size() - 1 && time + 1 + vec[i].x <= K; i++)
         {
-            K -= time + 1;
+            K -= time;
             total += vec[i].n;
-            time = min(byRoad(vec[i], vec[i + 1]), byJmp(vec[i], vec[i + 1]));
+            time = min(byRoad(vec[i], vec[i + 1]), byJmp(vec[i], vec[i + 1])) + 1;
         }
 
         cout << total << endl;

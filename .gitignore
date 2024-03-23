@@ -1,4 +1,10 @@
-*.exe
 */*.exe
-*.zip
+*.exe
 */*.zip
+*.zip
+*/*.dat
+*.dat
+*/*.vsdx
+*.vsdx
+*/.vscode
+.vscode

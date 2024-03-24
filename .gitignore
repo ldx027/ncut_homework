@@ -7,4 +7,5 @@
 */*.vsdx
 *.vsdx
 */.vscode
-.vscode
+.vscod
+test/

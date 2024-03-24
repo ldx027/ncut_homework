@@ -3,4 +3,4 @@
 *.dat
 *.vsdx
 .vscode
-test
+test/

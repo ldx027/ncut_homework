@@ -1,10 +1,6 @@
-*/*.exe
 *.exe
-*/*.zip
 *.zip
-*/*.dat
 *.dat
-*/*.vsdx
 *.vsdx
-*/.vscode
 .vscode
+test/

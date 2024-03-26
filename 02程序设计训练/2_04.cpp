@@ -29,6 +29,7 @@ int main()
 
         func(a); func(b);
 
+
         cout << (a == b ? "YES" : "NO") << endl;
     }
 }

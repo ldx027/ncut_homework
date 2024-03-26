@@ -1,20 +1,9 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-class Num
+int main()
 {
-private:
-    int sig;
-    vector<int> vec;
-
-public:
-    Num() : sig(1) {}
-
-    Num (string str)
-    {
-        trans(str);
-    }
-
-    void trans(string str)
-};
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}

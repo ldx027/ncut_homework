@@ -19,6 +19,11 @@ void show(vector<int> vec, string mid = "", string end = "\n")
     cout << end;
 }
 
+bool greater(vector<int> a, int idx, vector<int> b)
+{
+
+}
+
 vector<int> mul(vector<int> &a, vector<int> &b)
 {
     vector<int> rst(a.size() + b.size() + 3, 0);

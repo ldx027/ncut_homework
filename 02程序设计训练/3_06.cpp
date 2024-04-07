@@ -3,49 +3,141 @@
 #include <string>
 using namespace std;
 
-vector<int> str2num(string str)
-{
-    vector<int> vec(str.size());
-    for (int i = 0; i < vec.size(); i++)
-        vec[i] = str[str.size() - 1 - i] - '0';
-    return vec;
-}
-
-void show(vector<int> vec, string mid = "", string end = "\n")
-{
-    // cout << vec.size();
-    for (auto it = vec.rbegin(); it != vec.rend(); it++)
-        cout << *it << mid;
-    cout << end;
-}
-
-bool greater(vector<int> a, int idx, vector<int> b)
+class Num
 {
 
-}
+friend Num operator>>(const Num &num, const int x);
 
-vector<int> mul(vector<int> &a, vector<int> &b)
-{
-    vector<int> rst(a.size() + b.size() + 3, 0);
-    for (int i = 0; i < a.size(); i++)
+private:
+    vector<int> vec;
+
+public:
+    Num()
     {
-        for (int j = 0; j < b.size(); j++)
+        vec.clear();
+        vec.push_back(0);
+    }
+    Num(string str)
+    {
+        vec.resize(str.size(), 0);
+        for (int i = str.size() - 1; i >= 0; i--)
+            vec[i] = str[str.size() - i - 1] - '0';
+    }
+
+    void change(string str)
+    {
+        vec.resize(str.size());
+        for (int i = str.size() - 1; i >= 0; i--)
+            vec[i] = str[str.size() - i - 1] - '0';
+    }
+
+    int operator[](const int idx) const
+    {
+        return this->vec[idx];
+    }
+
+    bool operator>=(const Num &other) const
+    {
+        // show();
+        // other.show();
+
+        if (this->vec.size() > other.vec.size())
+            return true;
+        if (this->vec.size() < other.vec.size())
+            return false;
+
+        for (int i = vec.size() - 1; i >= 0; i--)
         {
-            rst[i + j] += a[i] * b[j];
+            if (vec[i] != other[i])
+                return vec[i] >= other[i];
         }
+        return true;
     }
-    // show(rst, " ");
 
-    for (int i = 0; i < rst.size(); i++)
+    Num operator-(const Num &other)
     {
-        if (rst[i] > 9)
-            rst[i + 1] += rst[i] / 10, rst[i] %= 10;
+        Num rst;
+        rst.vec = this->vec;
+
+        for (unsigned i = 0; i < other.vec.size(); i++)
+            rst.vec[i] -= other[i];
+
+        for (int i = 0; i < rst.vec.size() - 1; i++)
+        {
+            while (rst[i] < 0)
+            {
+                rst.vec[i] += 10;
+                rst.vec[i + 1] -= 1;
+            }
+        }
+
+        while (rst.vec.back() == 0)
+            rst.vec.pop_back();
+        if (rst.vec.size() == 0)
+            rst.vec.push_back(0);
+
+        return rst;
     }
 
-    while (rst.back() == 0)
-        rst.pop_back();
-    if (rst.size() == 0)
-        rst.push_back(0);
+    Num operator/(const Num &other)
+    {
+        Num rst, a;
+        a.vec = vec;
+
+        if (!(a >= other))
+            return rst;
+
+        rst.vec.resize(a.vec.size() - other.vec.size() + 2, 0);
+
+        for (int i = a.vec.size() - other.vec.size() + 1; i >= 0; i--)
+        {
+            // cout << "wtf" << endl;
+            // cout << i << endl;
+            // (other >> i).show();
+            while (a >= (other >> i))
+            {
+                rst.vec[i]++;
+                a = a - (other >> i);
+                // a.show();
+            }
+        }
+
+        // rst.vec[0]++;
+
+        // for (int i = 0; i < rst.vec.size(); i++)
+        // {
+        //     if (rst[i] > 9)
+        //     {
+        //         if (i == rst.vec.size() - 1) rst.vec.push_back(0);
+        //         rst.vec[i + 1] += rst[i] / 10;
+        //         rst.vec[i] %= 10;
+        //     }
+        // }
+
+        while (rst.vec.back() == 0)
+            rst.vec.pop_back();
+        if (rst.vec.size() == 0)
+            rst.vec.push_back(0);
+
+        return rst;
+    }
+
+    void show() const
+    {
+        for (int i = vec.size() - 1; i >= 0; i--)
+            cout << vec[i];
+        cout << endl;
+    }
+};
+
+Num operator>>(const Num &num, const int x)
+{
+    Num rst;
+    rst.vec.resize(num.vec.size() + x);
+    for (int i = 0; i < x; i++)
+        rst.vec[i] = 0;
+    for (int i = 0; i < num.vec.size(); i++)
+        rst.vec[i + x] = num.vec[i];
 
     return rst;
 }
@@ -56,12 +148,22 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    string str1, str2;
-    cin >> str1 >> str2;
-    vector<int> a = str2num(str1), b = str2num(str2);
+    int N;
+    cin >> N;
 
-    vector<int> rst = mul(a, b);
-    show(rst);
+    string stra, strb;
+    Num num1, num2, rst;
+
+    while (N--)
+    {
+        cin >> stra >> strb;
+
+        num1.change(stra);
+        num2.change(strb);
+
+        rst = num1 / num2;
+        rst.show();
+    }
 
     return 0;
 }

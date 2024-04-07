@@ -6,7 +6,7 @@ using namespace std;
 class Num
 {
 
-friend Num operator>>(const Num &num, const int x);
+friend const Num operator>>(const Num &num, const int x);
 
 private:
     vector<int> vec;
@@ -26,12 +26,12 @@ public:
 
     void change(string str)
     {
-        vec.resize(str.size());
+        vec.resize(str.size(), 0);
         for (int i = str.size() - 1; i >= 0; i--)
             vec[i] = str[str.size() - i - 1] - '0';
     }
 
-    int operator[](const int idx) const
+    const int operator[](const int idx) const
     {
         return this->vec[idx];
     }
@@ -54,7 +54,7 @@ public:
         return true;
     }
 
-    Num operator-(const Num &other)
+    Num operator-(const Num &other) const
     {
         Num rst;
         rst.vec = this->vec;
@@ -62,7 +62,7 @@ public:
         for (unsigned i = 0; i < other.vec.size(); i++)
             rst.vec[i] -= other[i];
 
-        for (int i = 0; i < rst.vec.size() - 1; i++)
+        for (unsigned i = 0; i < rst.vec.size() - 1; i++)
         {
             while (rst[i] < 0)
             {
@@ -79,7 +79,7 @@ public:
         return rst;
     }
 
-    Num operator/(const Num &other)
+    Num operator/(const Num &other) const
     {
         Num rst, a;
         a.vec = vec;
@@ -114,7 +114,7 @@ public:
         //     }
         // }
 
-        while (rst.vec.back() == 0)
+        while (rst.vec.size() > 0 && rst.vec.back() == 0)
             rst.vec.pop_back();
         if (rst.vec.size() == 0)
             rst.vec.push_back(0);
@@ -130,13 +130,13 @@ public:
     }
 };
 
-Num operator>>(const Num &num, const int x)
+const Num operator>>(const Num &num, const int x)
 {
     Num rst;
     rst.vec.resize(num.vec.size() + x);
     for (int i = 0; i < x; i++)
         rst.vec[i] = 0;
-    for (int i = 0; i < num.vec.size(); i++)
+    for (unsigned i = 0; i < num.vec.size(); i++)
         rst.vec[i + x] = num.vec[i];
 
     return rst;

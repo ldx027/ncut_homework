@@ -5,7 +5,7 @@ using namespace std;
 
 class Stu
 {
-public:
+private:
     string id;
     double score;
 

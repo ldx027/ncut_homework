@@ -22,29 +22,31 @@ int main()
 {
     Stu *arr = new Stu[5];
 
+    Stu *it = arr;
+
     string id;
     double score;
 
-    for (int i = 0; i < 5; i++)
+    for (auto it = arr; it < arr + 5; it++)
     {
         cin >> id >> score;
-        arr[i].set(id, score);
+        it->set(id, score);
     }
 
     double sum = 0;
     double avg;
-    for (int i = 0; i < 5; i++)
+    for (auto it = arr; it < arr + 5; it++)
     {
-        sum += arr[i].getScore();
+        sum += it->getScore();
     }
 
     avg = sum / 5.0;
     cout << setiosflags(ios::fixed) << setprecision(2) << avg << endl;
 
-    for (int i = 0; i < 5; i += 2)
+    for (auto it = arr; it < arr + 5; it += 2)
     {
-        cout << arr[i].getId() << " ";
-        cout << setiosflags(ios::fixed) << setprecision(2) << arr[i].getScore() << endl;
+        cout << it->getId() << " ";
+        cout << setiosflags(ios::fixed) << setprecision(2) << it->getScore() << endl;
     }
 
     return 0;

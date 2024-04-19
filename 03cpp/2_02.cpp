@@ -22,8 +22,6 @@ int main()
 {
     Stu *arr = new Stu[5];
 
-    Stu *it = arr;
-
     string id;
     double score;
 

@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.leftfix {
+    float: left;
+}
+
+.rightfix {
+    float: right;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 780px;
+    padding: 0 60px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.mgtop20px {
+    margin-top: 20px;
+}
+
+.topimg {
+    width: 900px;
+    height: 350px;
+    object-fit: cover;
+    background-image: url(../images/coding.png);
+    background-size: 100%;
+    background-position-y: 45%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 30px;
+    margin-top: 40px;
+}
+
+#header {
+    margin-top: 80px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+#header h1 {
+    margin-left: 30px;
+    font-size: 40px;
+}
+
+#header-info {
+    text-align: center;
+    color: gray;
+    margin-top: 40px;
+    margin-right: 30px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+#info {
+    background-color: orange;
+}
+
+.tle {
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-top: 50px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+#info img {
+    width: 100px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#introduce {
+    text-indent: 2em;
+    color: white;
+}
+
+#blogroll {
+    background-color: skyblue;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+#blogroll .tle{
+    line-height: 40px;
+}
+
+#blogroll img {
+    width: 20px;
+    vertical-align: top;
+}
+
+#blogroll a {
+    text-decoration: none;
+    color: #000;
+}
+
+#blogroll a:hover {
+    color: rgb(255, 66, 66);
+}
+
+#blogroll table {
+    width: 100%;
+    height: 300px;
+    text-align: center;
+}
+
+#menu>ul {
+    position: relative;
+}
+
+.fst-menu {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    text-indent: 20px;
+    line-height: 50px;
+    background-color: red;
+}
+
+#menu {
+    height: 1000px;
+    width: 900px;
+    padding: 0;
+    border-radius: 0;
+}
+
+.sec-menu {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 800px;
+    height: 800px;
+    visibility: hidden;
+    background-color: skyblue;
+}
+
+.sec-menu li{
+    float: left;
+}
+
+#menu>ul>li:hover .sec-menu {
+    visibility: visible;
+}

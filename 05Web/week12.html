@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d7fffc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #6fa8dc;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        p {
+            text-align: center;
+            color: #fff;
+        }
+        .button {
+            display: block;
+            width: 150px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            background-color: #ffa90a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #ffa90a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>作业</h1>
+        <p>This is a simple web page with a button.</p>
+        <a href="#" class="button">Click me</a>
+    </div>
+</body>
+</html>
+

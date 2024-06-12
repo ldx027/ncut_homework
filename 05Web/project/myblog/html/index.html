@@ -5,15 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/index.js"></script>
     <title>MyBlog</title>
 </head>
 
 <body>
     <!-- welcome -->
-    <div class="topimg"></div>
+    <div class="topimg" id="welcome"></div>
+
+    <!-- time -->
+    <div class="container" id="time">
+        <div id="t"></div>
+        <div id="greeting"></div>
+    </div>
+
+    <!-- zmd -->
+    <div id="zmd">欢迎来到我的博客</div>
 
     <!-- title -->
-    <div class="container">
+    <div class="container mgtop20px" id="title">
         <div id="header" class="clearfix">
             <h1 class="leftfix">My Blog</h1>
             <div id="header-info" class="rightfix">
@@ -28,7 +38,10 @@
         <div class="tle">个人简介</div>
         <img src="../images/person.svg" alt="" class="rightfix">
         <div id="introduce">
-            刘东昕，男，就读于北方工业大学，毕业于北京市第十三中学。没什么兴趣爱好。凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数
+            刘东昕，男，就读于北方工业大学，毕业于北京市第十三中学。没什么兴趣爱好。
+            尽管我没有特别突出的兴趣爱好，但我仍然积极寻找自己的兴趣点，并希望能够在未来的学习和生活中发现更多的乐趣。
+            在学业方面，我一直保持着认真和勤奋的态度，力求在各个方面取得进步。同时，我也希望通过大学的学习和实践，提升自己的专业能力，为将来的职业发展打下坚实的基础。
+            在绩点方面，我在大一上学期的绩点为91分，排在专业前15%，在竞赛方面，我在团体程序设计天梯赛中取得了220分的成绩，获得了国家级二等奖，位列全校第四。
         </div>
     </div>
 
@@ -40,43 +53,43 @@
                 <tr>
                     <td>
                         <img src="../images/icon/github.ico">
-                        <a href="https://github.com/">Github</a>
+                        <a href="https://github.com/" target="_blank">Github</a>
                     </td>
                     <td>
                         <img src="../images/icon/Chatgpt.ico">
-                        <a href="https://chatgpt.com/">Github</a>
+                        <a href="https://chatgpt.com/" target="_blank">Github</a>
                     </td>
                     <td>
                         <img src="../images/icon/luogu.ico">
-                        <a href="https://www.luogu.com.cn/">洛谷</a>
+                        <a href="https://www.luogu.com.cn/" target="_blank">洛谷</a>
                     </td>
                     <td>
                         <img src="../images/icon/oiwiki.ico">
-                        <a href="https://oi-wiki.org/">OI-wiki</a>
+                        <a href="https://oi-wiki.org/" target="_blank">OI-wiki</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <img src="../images/icon/pta.ico">
-                        <a href="https://pintia.cn/problem-sets/dashboard">PTA</a>
+                        <a href="https://pintia.cn/problem-sets/dashboard" target="_blank">PTA</a>
                     </td>
                     <td>
                         <img src="../images/icon/ncut.jpg">
-                        <a href="https://www.ncut.edu.cn/">NCUT</a>
+                        <a href="https://www.ncut.edu.cn/" target="_blank">NCUT</a>
                     </td>
                     <td>
                         <img src="../images/icon/civitai.ico">
-                        <a href="https://civitai.com/">Civitai</a>
+                        <a href="https://civitai.com/" target="_blank">Civitai</a>
                     </td>
                     <td>
                         <img src="../images/icon/youtube.ico">
-                        <a href="https://www.youtube.com/">YouTube</a>
+                        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <img src="../images/icon/jd.ico">
-                        <a href="https://www.jd.com/">京东</a>
+                        <a href="https://www.jd.com/" target="_blank">京东</a>
                     </td>
                     <td>
                         <img src="../images/icon/wikipedia.ico">
@@ -84,11 +97,11 @@
                     </td>
                     <td>
                         <img src="../images/icon/google.ico">
-                        <a href="https://google.com/">google</a>
+                        <a href="https://google.com/" target="_blank">google</a>
                     </td>
                     <td>
                         <img src="../images/icon/ted.ico">
-                        <a href="https://www.ted.com/">TED</a>
+                        <a href="https://www.ted.com/" target="_blank">TED</a>
                     </td>
                 </tr>
             </tbody>
@@ -97,66 +110,191 @@
 
     <!-- menu -->
     <div class="container mgtop20px" id="menu">
+        <img src="../images/coding.png">
         <ul>
             <li>
-                <div class="fst-menu">文字</div>
+                <div class="fst-menu">比赛相关</div>
                 <div class="sec-menu">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>占位A</th>
-                                <th>占位A</th>
-                                <th>占位A</th>
-                                <th>占位A</th>
-                                <th>占位A</th>
-                                <th>占位A</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
+                                <td><a href="比赛相关简介.html">比赛相关简介</a></td>
                             </tr>
                             <tr>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
+                                <td><a href="赛事.html">赛事</a></td>
+                                <td><a href="赛事.html#anchor1">OI赛事与赛制</a></td>
+                                <td><a href="赛事.html#anchor2">ICPC/CCPC赛事与赛制</a></td>
                             </tr>
                             <tr>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
+                                <td><a href="题型.html">题型</a></td>
+                                <td><a href="题型.html#anchor1">题型概述</a></td>
+                                <td><a href="题型.html#anchor2">交互题</a></td>
                             </tr>
                             <tr>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
+                                <td><a href="技巧.html">技巧</a></td>
+                            </tr>
+                        </tbody>
+                        </a>
+                    </table>
+                    </a>
+                </div>
+                </a>
+            </li>
+            <br>
+            <li>
+                <div class="fst-menu">搜索算法</a></div>
+                <div class="sec-menu">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><a href="搜索算法简介.html">搜索部分简介</a></td>
                             </tr>
                             <tr>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
-                                <td>占位1</td>
+                                <td><a href="搜索算法.html">搜索算法</a></td>
+                                <td><a href="搜索算法.html#anchor1">DFS</a></td>
+                                <td><a href="搜索算法.html#anchor2">BFS</a></td>
+                                <td><a href="搜索算法.html#anchor3">双向搜索</a></td>
+                                <td><a href="搜索算法.html#anchor4">A*</a></td>
+                                <td><a href="搜索算法.html#anchor5">IDA*</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="搜索算法优化.html">优化</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </li>
+            <br>
+            <li>
+                <div class="fst-menu">动态规划</a></div>
+                <div class="sec-menu">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><a href="动态规划简介.html">简介</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="动态规划基础.html">动态规划基础</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="记忆化搜索.html">记忆化搜索</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="DP.html">DP</a></td>
+                                <td><a href="DP.html#anchor1">背包DP</a></td>
+                                <td><a href="DP.html#anchor2">区间DP</a></td>
+                                <td><a href="DP.html#anchor3">状压DP</a></td>
+                                <td><a href="DP.html#anchor4">数位DP</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="DP优化.html">DP优化</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+            <br>
+            <li>
+                <div class="fst-menu">数据结构</a></div>
+                <div class="sec-menu">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><a href="数据结构简介.html">简介</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="基本数据结构.html">基础数据结构</a></td>
+                                <td><a href="基本数据结构.html#anchor1">栈</a></td>
+                                <td><a href="基本数据结构.html#anchor2">队列</a></td>
+                                <td><a href="基本数据结构.html#anchor3">链表</a></td>
+                                <td><a href="基本数据结构.html#anchor4">堆</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="进阶数据结构.html">进阶数据结构</a></td>
+                                <td><a href="进阶数据结构.html#anchor1">哈希表</a></td>
+                                <td><a href="进阶数据结构.html#anchor2">并查集</a></td>
+                                <td><a href="进阶数据结构.html#anchor3">单调栈</a></td>
+                                <td><a href="进阶数据结构.html#anchor4">单调队列</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="树形数据结构.html">树形数据结构</a></td>
+                                <td><a href="树形数据结构.html#anchor1">树状数组</a></td>
+                                <td><a href="树形数据结构.html#anchor2">线段树</a></td>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+            <br>
+            <li>
+                <div class="fst-menu">字符串</a></div>
+                <div class="sec-menu">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><a href="字符串部分简介.html">字符串部分简介</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="字符串哈希.html">字符串哈希</a></td>
+                                <td><a href="#">定义</a></td>
+                                <td><a href="#">实现</a></td>
+                                <td><a href="#">改进</a></td>
+                                <td><a href="#">应用</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="字典树.html">字典树</a></td>
+                                <td><a href="字典树.html#anchor1">定义</a></td>
+                                <td><a href="字典树.html#anchor2">实现</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+            <br>
+            <li>
+                <div class="fst-menu">图论</a></div>
+                <div class="sec-menu">
+                    <table>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="图论相关概念.html">图论相关概念</a></td>
+                                <td><a href="图论相关概念.html#anchor1">图</a></td>
+                                <td><a href="图论相关概念.html#anchor2">连通</a></td>
+                                <td><a href="图论相关概念.html#anchor3">特殊的图</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="图的存储.html">图的存储</a></td>
+                                <td><a href="图的存储.html#anchor1">直接存边</a></td>
+                                <td><a href="图的存储.html#anchor2">邻接矩阵</a></td>
+                                <td><a href="图的存储.html#anchor3">邻接表</a></td>
+                                <td><a href="图的存储.html#anchor4">链式前向星</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="树上问题.html">树上问题</a></td>
+                                <td><a href="树上问题.html#anchor1">基础</a></td>
+                                <td><a href="树上问题.html#anchor2">树的直径</a></td>
+                                <td><a href="树上问题.html#anchor3">最近公共祖先</a></td>
+                                <td><a href="树上问题.html#anchor4">树的重心</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mgtop20px"></div>
+
+    <!-- nav -->
+    <div id="nav">
+        <div>导航</div>
+        <ul>
+            <li><a href="#welcome">welcome</a></li>
+            <li><a href="#time">time</a></li>
+            <li><a href="#title">title</a></li>
+            <li><a href="#info">info</a></li>
+            <li><a href="#blogroll">blogroll</a></li>
+            <li><a href="#menu">menu</a></li>
         </ul>
     </div>
 </body>

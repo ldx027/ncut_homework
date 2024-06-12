@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>
+
+            图的存储
+        </h1>
+        <p>
+
+            在 OI 中，想要对图进行操作，就需要先学习图的存储方式。
+        </p>
+        <h3>
+
+            约定
+        </h3>
+        <p>
+
+            本文默认读者已阅读并了解了 图论相关概念 中的基础内容，如果在阅读中遇到困难，也可以在 图论相关概念 中进行查阅。
+        </p>
+
+        <p>
+
+            在本文中，用 n 代指图的点数，用 m 代指图的边数，用 d^+(u) 代指点 u 的出度，即以 u 为出发点的边数。
+        </p>
+        <h2 id="anchor1">
+
+            直接存边
+        </h2>
+        <h3>
+
+            方法
+        </h3>
+        <p>
+
+            使用一个数组来存边，数组中的每个元素都包含一条边的起点与终点（带边权的图还包含边权）。（或者使用多个数组分别存起点，终点和边权。）
+        </p>
+        <h3>
+
+            复杂度
+        </h3>
+        <code>
+查询是否存在某条边：O(m)。
+遍历一个点的所有出边：O(m)。
+遍历整张图：O(nm)。
+空间复杂度：O(m)。
+        </code>
+        <h3>
+
+            应用
+        </h3>
+        <p>
+
+            由于直接存边的遍历效率低下，一般不用于遍历图。
+        </p>
+        <p>
+
+            在 Kruskal 算法 中，由于需要将边按边权排序，需要直接存边。
+        </p>
+        <p>
+
+            在有的题目中，需要多次建图（如建一遍原图，建一遍反图），此时既可以使用多个其它数据结构来同时存储多张图，也可以将边直接存下来，需要重新建图时利用直接存下的边来建图。
+        </p>
+
+        <h2 id="anchor2">
+
+            邻接矩阵
+        </h2>
+        <h3>
+
+            方法
+        </h3>
+
+        <p>
+
+            使用一个二维数组 adj 来存边，其中 adj[u][v] 为 1 表示存在 u 到 v 的边，为 0 表示不存在。如果是带边权的图，可以在 adj[u][v] 中存储 u 到 v 的边的边权。
+        </p>
+        <h3>
+
+            复杂度
+        </h3>
+        <code>
+
+        查询是否存在某条边：O(1)。
+        遍历一个点的所有出边：O(n)。
+        遍历整张图：O(n^2)。
+        空间复杂度：O(n^2)。
+        </code>
+
+
+        <h3>
+
+            应用
+        </h3>
+        <p>
+
+            邻接矩阵只适用于没有重边（或重边可以忽略）的情况。
+        </p>
+        <p>
+
+            其最显著的优点是可以 O(1) 查询一条边是否存在。
+        </p>
+
+        <p>
+
+            由于邻接矩阵在稀疏图上效率很低（尤其是在点数较多的图上，空间无法承受），所以一般只会在稠密图上使用邻接矩阵。
+        </p>
+
+        <h2 id="anchor3">
+
+            邻接表
+        </h2>
+        <h3>
+
+            方法
+        </h3>
+        <p>
+
+            使用一个支持动态增加元素的数据结构构成的数组，如 vector<int> adj[n + 1] 来存边，其中 adj[u] 存储的是点 u 的所有出边的相关信息（终点、边权等）。
+        </p>
+        <h3>
+
+            复杂度
+        </h3>
+        <code>
+
+        查询是否存在 u 到 v 的边：O(d^+(u))（如果事先进行了排序就可以使用 二分查找 做到 O(\log(d^+(u)))）。
+        遍历点 u 的所有出边：O(d^+(u))。
+        遍历整张图：O(n+m)。
+        空间复杂度：O(m)。
+        </code>
+
+        <h3>
+
+            应用
+        </h3>
+
+        <p>
+
+            存各种图都很适合，除非有特殊需求（如需要快速查询一条边是否存在，且点数较少，可以使用邻接矩阵）。
+        </p>
+
+        <p>
+
+            尤其适用于需要对一个点的所有出边进行排序的场合。
+        </p>
+        <h2 id="anchor4">
+
+            链式前向星
+        </h2>
+
+        <h3>
+
+            方法
+        </h3>
+        <p>
+
+            本质上是用链表实现的邻接表，核心代码如下：
+        </p>
+
+        <code>
+
+        // head[u] 和 cnt 的初始值都为 -1
+        void add(int u, int v) {
+        nxt[++cnt] = head[u]; // 当前边的后继
+        head[u] = cnt; // 起点 u 的第一条边
+        to[cnt] = v; // 当前边的终点
+        }
+
+        // 遍历 u 的出边
+        for (int i = head[u]; ~i; i = nxt[i]) { // ~i 表示 i != -1
+        int v = to[i];
+        }
+        </code>
+        <h3>
+            复杂度
+        </h3>
+        <code>
+        查询是否存在 u 到 v 的边：O(d^+(u))。
+        遍历点 u 的所有出边：O(d^+(u))。
+        遍历整张图：O(n+m)。
+        空间复杂度：O(m)。
+        </code>
+        <div class="foot-nav">
+            <div>
+                <a href="树上问题.html" class="next">下一篇</a>
+                <a href="图论相关概念.html" class="prev">上一篇</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

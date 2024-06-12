@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container2">
+
+        <h1>
+
+            题型概述
+        </h1>
+        <p>
+
+            在算法竞赛中，有多种多样的问题类型。
+        </p>
+
+        <h2 id="anchor1">
+
+            传统题
+        </h2>
+        <p>
+
+            传统题 是目前算法竞赛中较为常见的题型。
+        </p>
+        <p>
+
+            选手需要提交源代码，评测系统会使用事先准备好一些输入数据和相应的输出数据作为测试点1，将选手提交的源代码编译后2，让选手程序读入输入数据，通过将选手输出与事先准备好的输出比较，来判断选手程序是否正确。这种评测方式被称之为
+            黑盒评测3。
+        </p>
+        <p>
+
+            对于一个测试点，往往还会设置时间限制和空间限制。
+        </p>
+
+        <p>
+
+            时间限制，指的是程序运行时间的限制4。选手程序在一个测试点上的运行时间不能超过给定的时间限制。
+        </p>
+        <p>
+
+            空间限制，指的是程序使用的内存量的限制。选手程序在运行时占用的最大空间不能超过给定的空间限制。
+        </p>
+        <p>
+
+            在程序正常运行结束后，选手的输出会和测试点输出进行比对。这种比对一般采用过滤文末换行和行末空格之后，进行全文比对的方式。对于某些特殊的题目，会使用 Special Judge 来进行比对。
+        </p>
+        <p>
+
+            这一过程结束后，评测系统会根据程序的运行状态，给出不同的 评测结果:
+        </p>
+        <ul>
+            <li>
+
+                Accepted（AC）：选手程序被接受。
+            </li>
+            <li>
+
+                Compile Error（CE）：选手程序无法正常编译。
+            </li>
+            <li>
+
+                Wrong Answer（WA）：选手程序正常结束，但是选手程序的输出与测试点输出不符。
+            </li>
+            <li>
+
+                Presentation Error（PE）：选手程序正常结束，但是格式不符合要求6。
+            </li>
+            <li>
+
+                Runtime Error（RE）：选手程序非正常结束（选手程序结束时的返回值不为零）。
+            </li>
+            <li>
+
+                Time Limit Exceeded（TLE）：选手程序运行的时间超过了给定的时间限制。
+            </li>
+            <li>
+
+                Memory Limit Exceeded（MLE）：选手程序占用的最大空间超过了给定的空间限制。
+            </li>
+            <li>
+
+                Output Limit Exceeded（OLE）：选手程序输出的内容的量超过了最大限制。
+            </li>
+        </ul>
+        <p>
+
+            在 ICPC 赛事中，你的程序需要在一道题目的所有测试点上都取得 AC 状态，才能视为通过相应的题目。在 OI 赛事中，在一个测试点中取得 AC 状态，即可拿到该测试点的分数7。
+        </p>
+        <h2 id="anchor2">
+
+            提交答案题
+        </h2>
+        <p>
+
+            提交答案题 是直接提交答案的题目。该种题目一般会给出输入文件，要求提交包含有 XXX1.out、XXX2.out、XXX3.out…XXXn.out 的压缩包、文件夹或纯文件。
+        </p>
+        <p>
+
+            提交答案后，评测系统会比较答案文件与标准答案，根据选手答案的优劣情况和任务完成度，给予一定的分数。
+        </p>
+        <p>
+
+            因为提交答案题不需要运行源程序，故提交答案题不存在时间和空间限制。
+        </p>
+        <p>
+        <h3>
+
+            交互题
+        </h3>
+        <p>
+
+            交互题 是需要选手程序与测评程序交互来完成任务的题目。一类常见的情形是，选手程序向测评程序发出询问，并得到其反馈。测评程序可能对选手的询问作出限制，或调整应答策略来尽可能增加询问次数，这也给题目带来了更多变化。
+        </p>
+        <p>
+
+            交互方式主要有如下两种。虽然技术上有不小的差异，但在考察算法的本质上它们并没有实际区别。
+        </p>
+        <h3>
+
+            STDIO 交互
+        </h3>
+        <p>
+
+            STDIO 交互（标准 I/O 交互）是 Codeforces、AtCoder 等在线平台的交互手段，也是 ICPC 系列赛事中的标准。Codeforces 提供了一个更加简要的 说明（英文）。
+        </p>
+
+        <div class="foot-nav">
+            <a href="技巧.html" class="next">下一篇</a>
+            <a href="赛事.html" class="prev">上一篇</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

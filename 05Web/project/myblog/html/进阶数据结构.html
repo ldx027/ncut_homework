@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>进阶数据结构</h1>
+        <h2 id="anchor1">哈希表</h2>
+        <h3>引入</h3>
+        <p>
+            哈希表又称散列表，一种以「key-value」形式存储数据的数据结构。所谓以「key-value」形式存储数据，是指任意的键值 key 都唯一对应到内存中的某个位置。只需要输入查找的键值，就可以快速地找到其对应的
+            value。可以把哈希表理解为一种高级的数组，这种数组的下标可以是很大的整数，浮点数，字符串甚至结构体。
+        </p>
+        <h3>
+            哈希函数
+        </h3>
+        <p>
+
+            要让键值对应到内存中的位置，就要为键值计算索引，也就是计算这个数据应该放到哪里。这个根据键值计算索引的函数就叫做哈希函数，也称散列函数。举个例子，如果键值是一个人的身份证号码，哈希函数就可以是号码的后四位，当然也可以是号码的前四位。生活中常用的「手机尾号」也是一种哈希函数。在实际的应用中，键值可能是更复杂的东西，比如浮点数、字符串、结构体等，这时候就要根据具体情况设计合适的哈希函数。哈希函数应当易于计算，并且尽量使计算出来的索引均匀分布。
+        </p>
+        <p>
+
+            能为 key 计算索引之后，我们就可以知道每个键值对应的值 value 应该放在哪里了。假设我们用数组 a 存放数据，哈希函数是 f，那键值对 (key, value) 就应该放在 a[f(key)]
+            上。不论键值是什么类型，范围有多大，f(key) 都是在可接受范围内的整数，可以作为数组的下标。
+        </p>
+        <p>
+
+            在 OI 中，最常见的情况应该是键值为整数的情况。当键值的范围比较小的时候，可以直接把键值作为数组的下标，但当键值的范围比较大，比如以 10^9
+            范围内的整数作为键值的时候，就需要用到哈希表。一般把键值模一个较大的质数作为索引，也就是取 f(x)=x \bmod M 作为哈希函数。
+        </p>
+        <h3>
+            冲突
+        </h3>
+        <p>
+            拉链法是在每个存放数据的地方开一个链表，如果有多个键值索引到同一个地方，只用把他们都放到那个位置的链表里就行了。查询的时候需要把对应位置的链表整个扫一遍，对其中的每个数据比较其键值与查询的键值是否一致。如果索引的范围是
+            1\ldots M，哈希表的大小为 N，那么一次插入/查询需要进行期望
+
+        </p>
+        <h2 id="anchor2">
+
+            并查集
+        </h2>
+        <h3>
+
+            引入
+        </h3>
+        <p>
+
+            并查集是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。
+        </p>
+        <p>
+
+            顾名思义，并查集支持两种操作：
+        </p>
+        <p>
+
+            合并（Union）：合并两个元素所属集合（合并对应的树）
+        </p>
+        <p>
+
+            查询（Find）：查询某个元素所属集合（查询对应的树的根节点），这可以用于判断两个元素是否属于同一集合
+        </p>
+        <p>
+
+            并查集在经过修改后可以支持单个元素的删除、移动；使用动态开点线段树还可以实现可持久化并查集。
+        </p>
+        <h2 id="anchor3">
+
+            单调栈
+        </h2>
+        <h3>
+
+            引入
+        </h3>
+        <p>
+
+            何为单调栈？顾名思义，单调栈即满足单调性的栈结构。与单调队列相比，其只在一端进行进出。
+        </p>
+        <h2 id="anchor4">
+            单调队列
+        </h2>
+        <h3>
+
+            定义
+        </h3>
+        <p>
+
+            顾名思义，单调队列的重点分为「单调」和「队列」。
+        </p>
+
+        <p>
+
+            「单调」指的是元素的「规律」——递增（或递减）。
+        </p>
+        <p>
+
+            「队列」指的是元素只能从队头和队尾进行操作。
+        </p>
+
+        <div class="foot-nav">
+            <a href="树形数据结构.html" class="next">下一篇</a>
+            <a href="基本数据结构.html" class="prev">上一篇</a>
+        </div>
+    </div>
+</body>
+
+</html>

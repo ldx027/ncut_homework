@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>
+
+            图论相关概念
+        </h1>
+        <h2 id="anchor1">
+
+            图
+        </h2>
+        <p>
+            图 (graph) 是一个二元组 G=(V(G), E(G))。其中 V(G) 是非空集，称为 点集 (vertex set)，对于 V 中的每个元素，我们称其为 顶点 (vertex) 或 节点 (node)，简称
+            点；E(G) 为 V(G) 各结点之间边的集合，称为 边集 (edge set)。
+        </p>
+        <h2 id="anchor2">
+            连通
+        </h2>
+        <h3>
+
+            无向图
+        </h3>
+        <p>
+
+            对于一张无向图 G = (V, E)，对于 u, v \in V，若存在一条途径使得 v_0 = u, v_k = v，则称 u 和 v 是 连通的
+            (connected)。由定义，任意一个顶点和自身连通，任意一条边的两个端点连通。
+        </p>
+        <p>
+
+            若无向图 G = (V, E)，满足其中任意两个顶点均连通，则称 G 是 连通图 (connected graph)，G 的这一性质称作 连通性 (connectivity)。
+        </p>
+        <p>
+
+            若 H 是 G 的一个连通子图，且不存在 F 满足 H\subsetneq F \subseteq G 且 F 为连通图，则 H 是 G 的一个 连通块/连通分量 (connected
+            component)（极大连通子图）。
+        </p>
+        <h3>
+
+            有向图
+        </h3>
+        <p>
+
+            对于一张有向图 G = (V, E)，对于 u, v \in V，若存在一条途径使得 v_0 = u, v_k = v，则称 u 可达
+            v。由定义，任意一个顶点可达自身，任意一条边的起点可达终点。（无向图中的连通也可以视作双向可达。）
+        </p>
+        <p>
+
+            若一张有向图的节点两两互相可达，则称这张图是 强连通的 (strongly connected)。
+        </p>
+        <p>
+
+            若一张有向图的边替换为无向边后可以得到一张连通图，则称原来这张有向图是 弱连通的 (weakly connected)。
+        </p>
+
+        <p>
+
+            与连通分量类似，也有 弱连通分量 (weakly connected component)（极大弱连通子图）和 强连通分量 (strongly connected
+            component)（极大强连通子图）。(graph) 是一个二元组 G=(V(G), E(G))。其中 V(G) 是非空集，称为 点集 (vertex set)，对于 V 中的每个元素，我们称其为 顶点
+            (vertex) 或 节点 (node)，简称 点；E(G) 为 V(G) 各结点之间边的集合，称为 边集 (edge set)。
+        </p>
+        <h2 id="anchor3">
+
+            特殊的图
+        </h2>
+        <p>
+
+            若无向简单图 G 满足任意不同两点间均有边，则称 G 为 完全图 (complete graph)，n 阶完全图记作 K_n。若有向图 G 满足任意不同两点间都有两条方向不同的边，则称 G 为 有向完全图
+            (complete digraph)。
+        </p>
+        <p>
+
+            边集为空的图称为 无边图 (edgeless graph)、空图 (empty graph) 或 零图 (null graph)，n 阶无边图记作
+        </p>
+        <div class="foot-nav">
+            <div>
+                <a href="图的存储.html" class="next">下一篇</a>
+                <a href="字典树.html" class="prev">上一篇</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

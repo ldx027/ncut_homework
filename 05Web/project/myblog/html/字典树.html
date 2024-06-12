@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>
+
+            字典树 (Trie)
+        </h1>
+        <h2 id="anchor1">
+
+            定义
+        </h2>
+        <p>
+
+            字典树，英文名 trie。顾名思义，就是一个像字典一样的树。
+        </p>
+
+        <p>
+
+            可以发现，这棵字典树用边来代表字母，而从根结点到树上某一结点的路径就代表了一个字符串。举个例子，1\to4\to 8\to 12 表示的就是字符串 caa。
+        </p>
+        <p>
+
+            trie 的结构非常好懂，我们用 \delta(u,c) 表示结点 u 的 c 字符指向的下一个结点，或着说是结点 u 代表的字符串后面添加一个字符 c 形成的字符串的结点。（c 的取值范围和字符集大小有关，不一定是
+            0\sim 26。）
+        </p>
+        <p>
+
+            有时需要标记插入进 trie 的是哪些字符串，每次插入完成时在这个字符串所代表的节点处打上标记即可。
+        </p>
+        <h2 id="anchor2">
+
+            实现
+        </h2>
+
+        <p>
+
+            放一个结构体封装的模板：
+        </p>
+        <code>
+
+        struct trie {
+        int nex[100000][26], cnt;
+        bool exist[100000]; // 该结点结尾的字符串是否存在
+
+        void insert(char *s, int l) { // 插入字符串
+        int p = 0;
+        for (int i = 0; i < l; i++) { int c=s[i] - 'a' ; if (!nex[p][c]) nex[p][c]=++cnt; // 如果没有，就添加结点 p=nex[p][c]; }
+            exist[p]=1; } bool find(char *s, int l) { // 查找字符串 int p=0; for (int i=0; i < l; i++) { int c=s[i] - 'a' ;
+            if (!nex[p][c]) return 0; p=nex[p][c]; } return exist[p]; } }; 应用 检索字符串 字典树最基础的应用——查找一个字符串是否在「字典」中出现过。 
+        </code>
+
+
+        <div class="foot-nav">
+            <div>
+                <a href="图论相关概念.html" class="next">下一篇</a>
+                <a href="字符串哈希.html" class="prev">上一篇</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

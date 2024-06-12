@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>基本数据结构</h1>
+        <h2 id="anchor1">
+
+            栈
+        </h2>
+        <h3>
+
+            引入
+        </h3>
+        <p>
+            栈是 OI 中常用的一种线性数据结构。请注意，本文主要讲的是栈这种数据结构，而非程序运行时的系统栈/栈空间。
+        </p>
+        <p>
+            栈的修改与访问是按照后进先出的原则进行的，因此栈通常被称为是后进先出（last in first out）表，简称 LIFO 表。
+        </p>
+
+        <h2 id="anchor2">队列</h2>
+        <h3>引入</h3>
+        <p>
+            队列（queue）是一种具有「先进入队列的元素一定先出队列」性质的表。由于该性质，队列通常也被称为先进先出（first in first out）表，简称 FIFO 表。
+        </p>
+        <h2 id="anchor3">链表</h2>
+        <h3>引入</h3>
+        <p>
+
+            链表是一种用于存储数据的数据结构，通过如链条一般的指针来连接元素。它的特点是插入与删除数据十分方便，但寻找与读取数据的表现欠佳。
+        </p>
+        <h3>
+
+            与数组的区别
+        </h3>
+        <p>
+
+            链表和数组都可用于存储数据。与链表不同，数组将所有元素按次序依次存储。不同的存储结构令它们有了不同的优势：
+        </p>
+        <p>
+
+            链表因其链状的结构，能方便地删除、插入数据，操作次数是 O(1)。但也因为这样，寻找、读取数据的效率不如数组高，在随机访问数据中的操作次数是 O(n)。
+        </p>
+        <p>
+
+            数组可以方便地寻找并读取数据，在随机访问中操作次数是 O(1)。但删除、插入的操作次数是 O(n) 次。
+        </p>
+        <h2 id="anchor4">
+            堆
+        </h2>
+        <p>
+
+            堆是一棵树，其每个节点都有一个键值，且每个节点的键值都大于等于/小于等于其父亲的键值。
+        </p>
+        <p>
+
+            每个节点的键值都大于等于其父亲键值的堆叫做小根堆，否则叫做大根堆。STL 中的 priority_queue 其实就是一个大根堆。
+        </p>
+        <p>
+
+            （小根）堆主要支持的操作有：插入一个数、查询最小值、删除最小值、合并两个堆、减小一个元素的值。
+        </p>
+
+        <p>
+
+            一些功能强大的堆（可并堆）还能（高效地）支持 merge 等操作。
+        </p>
+        <p>
+
+            一些功能更强大的堆还支持可持久化，也就是对任意历史版本进行查询或者操作，产生新的版本。>
+        </p>
+
+
+
+
+        <div class="foot-nav">
+            <a href="进阶数据结构.html" class="next">下一篇</a>
+            <a href="数据结构简介.html" class="prev">上一篇</a>
+        </div>
+    </div>
+</body>
+
+</html>

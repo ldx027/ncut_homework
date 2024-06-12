@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>搜索算法</h1>
+        <h2 id="anchor1">
+
+            DFS（搜索）
+        </h2>
+        <h3>
+
+            引入
+        </h3>
+        <p>
+
+            DFS 为图论中的概念，详见 DFS（图论） 页面。在 搜索算法 中，该词常常指利用递归函数方便地实现暴力枚举的算法，与图论中的 DFS 算法有一定相似之处，但并不完全相同。
+        </p>
+        <h3>
+
+            解释
+        </h3>
+        <p>
+            考虑这个例子：
+        </p>
+        <h3>
+
+            例题
+        </h3>
+        <p>
+
+            把正整数 n 分解为 3 个不同的正整数，如 6=1+2+3，排在后面的数必须大于等于前面的数，输出所有方案。
+        </p>
+        <p>
+
+            对于这个问题，如果不知道搜索，应该怎么办呢？
+        </p>
+        <p>
+
+            当然是三重循环，参考代码如下：
+        </p>
+        <h3>
+
+            实现
+        </h3>
+        <code>
+
+for (int i = 1; i <= n; ++i)
+  for (int j = i; j <= n; ++j)
+    for (int k = j; k <= n; ++k)
+      if (i + j + k == n) printf("%d = %d + %d + %d\n", n, i, j, k);
+        </code>
+        <p>
+
+            那如果是分解成四个整数呢？再加一重循环？
+        </p>
+
+        <p>
+
+            那分解成小于等于 m 个整数呢？
+        </p>
+        <p>
+
+            这时候就需要用到递归搜索了。
+        </p>
+        <p>
+
+            该类搜索算法的特点在于，将要搜索的目标分成若干「层」，每层基于前几层的状态进行决策，直到达到目标状态。
+        </p>
+        <p>
+
+            考虑上述问题，即将正整数 n 分解成小于等于 m 个正整数之和，且排在后面的数必须大于等于前面的数，并输出所有方案。
+        </p>
+        <p>
+
+            设一组方案将正整数 n 分解成 k 个正整数 a_1, a_2, \ldots, a_k 的和。
+        </p>
+        <p>
+            我们将问题分层，第 i 层决定 a_i。则为了进行第 i 层决策，我们需要记录三个状态变量：
+            n-\sum_{j=1}^i{a_j}，表示后面所有正整数的和；以及 a_{i-1}，表示前一层的正整数，以确保正整数递增；以及 i，确保我们最多输出 m 个正整数。
+
+        </p>
+        <p>
+
+            为了记录方案，我们用 arr 数组，第 i 项表示 a_i. 注意到 arr 实际上是一个长度为 i 的栈。
+        </p>
+        <h3>
+
+            代码如下：
+        </h3>
+        <code>
+
+        int m, arr[103]; // arr 用于记录方案
+
+        void dfs(int n, int i, int a) {
+        if (n == 0) {
+        for (int j = 1; j <= i - 1; ++j) printf("%d ", arr[j]);
+        printf(" \n"); } if (i <=m) { for (int j=a; j <=n; ++j) { arr[i]=j; dfs(n - j, i + 1, j); // 请仔细思考该行含义。 } } } //
+            主函数 scanf("%d%d", &n, &m); dfs(n, 1, 1); 
+        </code>
+        <h2 id="anchor2">
+            BFS（搜索）
+        </h2>
+        <p>
+            BFS 是图论中的一种遍历算法，详见 BFS。
+        </p>
+        <p>
+            BFS 在搜索中也很常用，将每个状态对应为图中的一个点即可。
+        </p>
+        <h2 id="anchor3">
+            双向搜索
+        </h2>
+        <p>
+            本页面将简要介绍两种双向搜索算法：「双向同时搜索」和「Meet in the middle」。
+        </p>
+        <h3>
+            双向同时搜索
+        </h3>
+        <h4>
+            定义
+        </h4>
+        <p>
+            双向同时搜索的基本思路是从状态图上的起点和终点同时开始进行 广搜 或 深搜。
+        </p>
+        <p>
+            如果发现搜索的两端相遇了，那么可以认为是获得了可行解。
+        </p>
+        <h2 id="anchor4">
+
+            A*
+        </h2>
+        <p>
+
+            本页面将简要介绍 A * 算法。
+        </p>
+        <h3>
+
+            定义
+        </h3>
+        <p>
+
+            A * 搜索算法（英文：A*search algorithm，A * 读作 A-star），简称 A * 算法，是一种在图形平面上，对于有多个节点的路径求出最低通过成本的算法。它属于图遍历（英文：Graph
+            traversal）和最佳优先搜索算法（英文：Best-first search），亦是 BFS 的改进。
+        </p>
+        <h3>
+            过程
+        </h3>
+        <p>
+            定义起点 s，终点 t，从起点(初始状态)开始的距离函数 g(x)，到终点(最终状态)的距离函数h(x)，h*(x)，以及每个点的估价函数 f(x)= g(x)+h(x)。
+        </p>
+        <p>
+            A*算法每次从优先队列中取出一个 f最小的元素，然后更新相邻的状态
+        </p>
+        <p>
+            如果 ん< ん*，则 A*算法能找到最优解 </p>
+                <p>
+                    上述条件下，如果h满足三角形不等式，则A*算法不会将重复结点加入队列。
+                </p>
+                <p>
+                    当h=0时，A*算法变为 Dijkstra;当h=0并且边权为1时变为 BFS。
+                </p>
+                <h2 id="anchor5">
+                    IDA*
+                </h2>
+                <p>
+
+                    前置知识：A* 算法、迭代加深搜索。
+                </p>
+                <p>
+
+                    本页面将简要介绍 IDA * 算法。
+                </p>
+                <h3>
+
+                    定义
+                </h3>
+                <p>
+
+                    IDA * 为采用了迭代加深算法的 A * 算法。
+                </p>
+                <h3>
+
+                    优点
+                </h3>
+                <p>
+
+                    由于 IDA * 改成了深度优先的方式，相对于 A * 算法，它的优点如下：
+                </p>
+                <p>
+
+                    不需要判重，不需要排序，利于深度剪枝。
+                    空间需求减少：每个深度下实际上是一个深度优先搜索，不过深度有限制，使用 DFS 可以减小空间消耗。
+                    缺点
+                    重复搜索：即使前后两次搜索相差微小，回溯过程中每次深度变大都要再次从头搜索。
+                </p>
+
+
+
+                <div class="foot-nav">
+                    <a href="搜索算法优化.html" class="next">下一篇</a>
+                    <a href="搜索算法简介.html" class="prev">上一篇</a>
+                </div>
+    </div>
+
+</body>
+
+</html>

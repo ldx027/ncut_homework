@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>
+            树形数据结构
+        </h1>
+        <h2 id="anchor1">
+
+            树状数组
+        </h2>
+        <h3>
+
+            引入
+        </h3>
+        <p>
+
+            树状数组是一种支持 单点修改 和 区间查询 的，代码量小的数据结构。
+        </p>
+        <p>
+
+            普通树状数组维护的信息及运算要满足 结合律 且 可差分，如加法（和）、乘法（积）、异或等。
+        </p>
+        <p>
+
+            结合律：(x \circ y) \circ z = x \circ (y \circ z)，其中 \circ 是一个二元运算符。
+            可差分：具有逆运算的运算，即已知 x \circ y 和 x 可以求出 y。
+        </p>
+        <p>
+
+            需要注意的是：
+        </p>
+        <p>
+            模意义下的乘法若要可差分，需保证每个数都存在逆元（模数为质数时一定存在）；
+            例如 \gcd，\max 这些信息不可差分，所以不能用普通树状数组处理，但是：
+            使用两个树状数组可以用于处理区间最值，见 Efficient Range Minimum Queries using Binary Indexed Trees。
+            本页面也会介绍一种支持不可差分信息查询的，\Theta(\log^2n) 时间复杂度的拓展树状数组。
+            事实上，树状数组能解决的问题是线段树能解决的问题的子集：树状数组能做的，线段树一定能做；线段树能做的，树状数组不一定可以。然而，树状数组的代码要远比线段树短，时间效率常数也更小，因此仍有学习价值。
+
+        </p>
+        <p>
+
+            有时，在差分数组和辅助数组的帮助下，树状数组还可解决更强的 区间加单点值 和 区间加区间和 问题。
+        </p>
+        <h2 id="anchor2">
+
+            线段树
+        </h2>
+        <h3>
+
+            引入
+        </h3>
+        <p>
+
+            线段树是算法竞赛中常用的用来维护 区间信息 的数据结构。
+        </p>
+        <p>
+
+            线段树可以在 O(\log N) 的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。
+        </p>
+        <h3>
+
+            线段树
+        </h3>
+        <p>
+
+            线段树将每个长度不为 1 的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。
+        </p>
+        <div class="foot-nav">
+            <a href="字符串部分简介.html" class="next">下一篇</a>
+            <a href="进阶数据结构.html" class="prev">上一篇</a>
+        </div>
+    </div>
+</body>
+
+</html>

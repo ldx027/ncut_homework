@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>
+
+            字符串哈希
+        </h1>
+        <h2 id="anchor1">
+
+            定义
+        </h2>
+        <p>
+
+            我们定义一个把字符串映射到整数的函数 f，这个 f 称为是 Hash 函数。
+        </p>
+
+        <p>
+
+            我们希望这个函数 f 可以方便地帮我们判断两个字符串是否相等。
+        </p>
+        <h3>
+
+            Hash 的思想
+        </h3>
+        <p>
+
+            Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围。
+        </p>
+        <h3>
+
+            性质
+        </h3>
+        <p>
+
+            具体来说，哈希函数最重要的性质可以概括为下面两条：
+        </p>
+
+        <p>
+
+            在 Hash 函数值不一样的时候，两个字符串一定不一样；
+        </p>
+
+        <p>
+
+            在 Hash 函数值一样的时候，两个字符串不一定一样（但有大概率一样，且我们当然希望它们总是一样的）。
+        </p>
+
+        <p>
+
+            我们将 Hash 函数值一样但原字符串不一样的现象称为哈希碰撞。
+        </p>
+
+        <h3>
+
+            解释
+        </h3>
+        <p>
+
+            时间复杂度和 Hash 的准确率。
+        </p>
+        <p>
+
+            通常我们采用的是多项式 Hash 的方法，对于一个长度为 l 的字符串 s 来说，我们可以这样定义多项式 Hash 函数：
+            f(s) = \sum_{i=1}^{l} s[i] \times b^{l-i} \pmod M。例如，对于字符串 xyz，其哈希函数值为 xb^2+yb+z。
+        </p>
+        <p>
+
+            特别要说明的是，也有很多人使用的是另一种 Hash 函数的定义，即
+            f(s) = \sum_{i=1}^{l} s[i] \times b^{i-1} \pmod M，这种定义下，同样的字符串 xyz 的哈希值就变为了 x+yb+zb^2 了。
+        </p>
+        <p>
+
+            显然，上面这两种哈希函数的定义函数都是可行的，但二者在之后会讲到的计算子串哈希值时所用的计算式是不同的，因此千万注意 不要弄混了这两种不同的 Hash 方式。
+        </p>
+
+        <p>
+
+            由于前者的 Hash 定义计算更简便、使用人数更多、且可以类比为一个 b 进制数来帮助理解，所以本文下面所将要讨论的都是使用
+            f(s) = \sum_{i=1}^{l} s[i] \times b^{l-i} \pmod M 来定义的 Hash 函数。
+        </p>
+        <p>
+
+            下面讲一下如何选择 M 和计算哈希碰撞的概率。
+        </p>
+
+
+
+        <p>
+
+            这里 M 需要选择一个素数（至少要比最大的字符要大），b 可以任意选择。
+        </p>
+
+        <p>
+
+
+            如果我们用未知数 x 替代 b，那么 f(s) 实际上是多项式环 \mathbb{Z}_M[x] 上的一个多项式。考虑两个不同的字符串 s,t，有 f(s)=f(t)。我们记
+            h(x)=f(s)-f(t)=\sum_{i=1}^l(s[i]-t[i])x^{l-i}\pmod M，其中 l=\max(|s|,|t|)。可以发现 h(x) 是一个 l-1 阶的非零多项式。
+        </p>
+
+        <p>
+
+            如果 s 与 t 在 x=b 的情况下哈希碰撞，则 b 是 h(x) 的一个根。由于 h(x) 在 \mathbb{Z}_M 是一个域（等价于 M 是一个素数，这也是为什么 M 要选择素数的原因）的时候，最多有
+            l-1
+            个根，如果我们保证 b 是从 [0,M) 之间均匀随机选取的，那么 f(s) 与 f(t) 碰撞的概率可以估计为
+        </p>
+
+        <p>
+
+            \frac{l-1}{M}。简单验算一下，可以发现如果两个字符串长度都是 1 的时候，哈希碰撞的概率为
+        </p>
+        <p>
+
+            \frac{1-1}{M}=0，此时不可能发生碰撞。
+        </p>
+        <h2 id="anchor2">
+            实现
+        </h2>
+        <code>
+using std::string;
+
+const int M = 1e9 + 7;
+const int B = 233;
+
+typedef long long ll;
+
+int get_hash(const string& s) {
+  int res = 0;
+  for (int i = 0; i < s.size(); ++i) {
+    res = ((ll)res * B + s[i]) % M;
+  }
+  return res;
+}
+
+bool cmp(const string& s, const string& t) {
+  return get_hash(s) == get_hash(t);
+}
+        </code>
+        <h2 id="anchor3">改进</h2>
+        <p>
+            假定哈希函数将字符串随机地映射到大小为 M 的值域中，总共有 n 个不同的字符串，那么未出现碰撞的概率是
+
+            \prod_{i = 0}^{n-1} \frac{M-i}{M}（第 i 次进行哈希时，有
+
+            \frac{M-i}{M} 的概率不会发生碰撞）。在随机数据下，若 M=10^9 + 7，n=10^6，未出现碰撞的概率是极低的。
+
+            所以，进行字符串哈希时，经常会对两个大质数分别取模，这样的话哈希函数的值域就能扩大到两者之积，错误率就非常小了。
+        </p>
+        <h2 id="anchor4">
+            Hash 的应用
+        </h2>
+        <p>
+            求出模式串的哈希值后，求出文本串每个长度为模式串长度的子串的哈希值，分别与模式串的哈希值比较即可。
+        </p>
+        <div class="foot-nav">
+            <div>
+                <a href="字典树.html" class="next">下一篇</a>
+                <a href="字符串部分简介.html" class="prev">上一篇</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

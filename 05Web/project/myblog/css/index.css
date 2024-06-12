@@ -26,6 +26,14 @@ ul, ol {
     clear: both;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
 .container {
     width: 780px;
     padding: 0 60px;
@@ -50,6 +58,19 @@ ul, ol {
     margin: 0 auto;
     border-radius: 30px;
     margin-top: 40px;
+}
+
+#time {
+    margin-top: 50px;
+    font-size: 80px;
+    text-align: center;
+    color: skyblue;
+}
+
+#zmd {
+    position: absolute;
+    font-size: 40px;
+    width: 8em;
 }
 
 #header {
@@ -138,30 +159,114 @@ ul, ol {
     font-size: 20px;
     text-indent: 20px;
     line-height: 50px;
-    background-color: red;
+    background-color: orange;
+    color: white;
 }
 
 #menu {
-    height: 1000px;
     width: 900px;
     padding: 0;
     border-radius: 0;
+    position: relative;
+    /* margin-bottom: 100px; */
+}
+
+#menu img {
+    width: 750px;
+    height: 300px;
+    position: absolute;
+    left: 150px;
+    object-fit: cover;
+}
+
+#menu>ul>li {
+    display: inline-block;
 }
 
 .sec-menu {
     position: absolute;
     top: 0;
     left: 150px;
-    width: 800px;
-    height: 800px;
+    width: 750px;
+    height: 300px;
     visibility: hidden;
-    background-color: skyblue;
+    background-color: yellowgreen;
 }
 
 .sec-menu li{
     float: left;
 }
 
+.sec-menu table {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+#menu>ul>li:hover .fst-menu {
+    background-color: yellowgreen;
+}
+
 #menu>ul>li:hover .sec-menu {
     visibility: visible;
+}
+
+.sec-menu tr {
+    display: block;
+    width: 680px;
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+.sec-menu td a {
+    margin: 0 20px;
+}
+
+.sec-menu tr td:first-child {
+    font-weight: bolder;
+}
+
+#menu a:hover {
+    color: red;
+}
+
+#nav {
+    position: fixed;
+    left: 20px;
+    top: 200px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: skyblue;
+    font-size: 20px;
+    padding: 30px;
+    color: white;
+}
+
+#nav div:first-child {
+    font-size: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+}
+
+#nav ul {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+#nav a {
+    color: white;
+}
+
+#nav a:hover {
+    color: red;
+}
+
+#form {
+    background-color: yellowgreen;
+    margin-bottom: 30px;
+}
+
+#form table {
+    margin: 0 auto;
+    width: 400px;
+    font-size: 20px;
 }

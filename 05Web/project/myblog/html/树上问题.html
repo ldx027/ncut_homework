@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container2">
+        <h1>树上问题</h1>
+        <h2 id="anchor1">
+
+            树基础
+        </h2>
+        <h3>
+
+            引入
+        </h3>
+        <p>
+
+            图论中的树和现实生活中的树长得一样，只不过我们习惯于处理问题的时候把树根放到上方来考虑。这种数据结构看起来像是一个倒挂的树，因此得名。
+        </p>
+        <h3>
+
+            定义
+        </h3>
+        <p>
+
+            一个没有固定根结点的树称为 无根树（unrooted tree）。无根树有几种等价的形式化定义：
+        </p>
+
+        <p>
+
+            有 n 个结点，n-1 条边的连通无向图
+        </p>
+        <h2 id="anchor2">树的直径</h2>
+        <p>
+            树上任意两节点之间最长的简单路径即为树的「直径」。
+        </p>
+        <h3>
+            引入
+        </h3>
+        <p>
+            显然，一棵树可以有多条直径，他们的长度相等。
+        </p>
+        <p>
+            可以用两次 DFS 或者树形 DP 的方法在 O(n) 时间求出树的直径。
+
+            例题
+        </p>
+        <h3>
+            做法 1. 两次 DFS
+        </h3>
+        <p>
+            首先从任意节点 y 开始进行第一次 DFS，到达距离其最远的节点，记为 z，然后再从 z 开始做第二次 DFS，到达距离 z 最远的节点，记为 z'，则 \delta(z,z') 即为树的直径。
+        </p>
+        <p>
+            显然，如果第一次 DFS 到达的节点 z 是直径的一端，那么第二次 DFS 到达的节点 z' 一定是直径的一端。我们只需证明在任意情况下，z 必为直径的一端。
+        </p>
+        <p>
+            定理：在一棵树上，从任意节点 y 开始进行一次 DFS，到达的距离其最远的节点 z 必为直径的一端。
+        </p>
+        <h3>
+            做法 2. 树形 DP
+        </h3>
+        <p>
+            我们记录当 1 为树的根时，每个节点作为子树的根向下，所能延伸的最长路径长度 d_1 与次长路径（与最长路径无公共边）长度 d_2，那么直径就是对于每一个点，该点 d_1 + d_2 能取到的值中的最大值。
+
+            树形 DP 可以在存在负权边的情况下求解出树的直径。
+        </p>
+        <p>
+            如果需要求出一条直径上所有的节点，则可以在 DP 的过程中，记录下每个节点能向下延伸的最长路径与次长路径（定义同上）所对应的子节点，在求 d 的同时记下对应的节点 u，使得 d = d_1[u] +
+            d_2[u]，即可分别沿着从 u 开始的最长路径的次长路径对应的子节点一路向某个方向（对于无根树，虽然这里指定了 1 为树的根，但仍需记录每点跳转的方向；对于有根树，一路向上跳即可），遍历直径上所有的节点。
+        </p>
+        <h2 id="anchor3">
+            最近公共祖先
+        </h2>
+        <h3>
+            定义
+        </h3>
+        <p>
+            最近公共祖先简称 LCA（Lowest Common Ancestor）。两个节点的最近公共祖先，就是这两个点的公共祖先里面，离根最远的那个。 为了方便，我们记某点集 S=\{v_1,v_2,\ldots,v_n\}
+            的最近公共祖先为 \text{LCA}(v_1,v_2,\ldots,v_n) 或 \text{LCA}(S)。
+        </p>
+        <h3>
+            性质
+        </h3>
+        <code>
+u 是 v 的祖先，当且仅当 \text{LCA}(u,v)=u；
+如果 u 不为 v 的祖先并且 v 不为 u 的祖先，那么 u,v 分别处于 \text{LCA}(u,v) 的两棵不同子树中；
+前序遍历中，\text{LCA}(S) 出现在所有 S 中元素之前，后序遍历中 \text{LCA}(S) 则出现在所有 S 中元素之后；
+两点集并的最近公共祖先为两点集分别的最近公共祖先的最近公共祖先，即 \text{LCA}(A\cup B)=\text{LCA}(\text{LCA}(A), \text{LCA}(B))；
+两点的最近公共祖先必定处在树上两点间的最短路上；
+d(u,v)=h(u)+h(v)-2h(\text{LCA}(u,v))，其中 d 是树上两点间的距离，h 代表某点到树根的距离。
+       </code>
+        <h2 id="anchor4">
+
+            树的重心
+        </h2>
+        <h3>
+
+            定义
+        </h3>
+        <p>
+
+            如果在树中选择某个节点并删除，这棵树将分为若干棵子树，统计子树节点数并记录最大值。取遍树上所有节点，使此最大值取到最小的节点被称为整个树的重心。
+        </p>
+
+        <p>
+
+            （这里以及下文中的「子树」若无特殊说明都是指无根树的子树，即包括「向上」的那棵子树，并且不包括整棵树自身。）
+        </p>
+        <h3>
+
+            性质
+        </h3>
+        <code>
+树的重心如果不唯一，则至多有两个，且这两个重心相邻。
+以树的重心为根时，所有子树的大小都不超过整棵树大小的一半。
+树中所有点到某个点的距离和中，到重心的距离和是最小的；如果有两个重心，那么到它们的距离和一样。
+把两棵树通过一条边相连得到一棵新的树，那么新的树的重心在连接原来两棵树的重心的路径上。
+在一棵树上添加或删除一个叶子，那么它的重心最多只移动一条边的距离。
+       </code>
+        <div class="foot-nav">
+            <div>
+                <a href="#" class="next">下一篇</a>
+                <a href="图的存储.html" class="prev">上一篇</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

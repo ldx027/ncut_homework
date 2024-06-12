@@ -1,0 +1,161 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+body,
+html {
+    scroll-behavior: smooth;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.container1 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container2 {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.topbar {
+    text-align: center;
+    background-color: #ebebeb;
+    font-size: 0;
+}
+
+.topbar .container1>a>div {
+    font-size: 60px;
+    font-weight: bolder;
+    transition: 1s;
+}
+
+.topbar .container1>a>div:hover {
+    color: skyblue;
+}
+
+.top-nav {
+    display: inline-block;
+    line-height: 50px;
+    height: 50px;
+}
+
+.top-nav::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.topbar {
+    color: white;
+    position: sticky;
+    top: -80px;
+}
+
+.top-nav span {
+    color: black;
+}
+
+.topbar li {
+    float: left;
+    width: 180px;
+    font-size: 20px;
+    position: relative;
+    transition: 0.5s;
+}
+
+.topbar li:hover {
+    background-color: skyblue;
+}
+
+.topbar li:hover>span {
+    color: white;
+}
+
+.sec-nav {
+    width: 180px;
+    background-color: skyblue;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.7s;
+}
+
+.sec-nav a {
+    display: inline-block;
+    color: white;
+    width: 180px;
+}
+
+.topbar li:hover .sec-nav {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.sec-nav a:hover {
+    color: red;
+    background-color: yellowgreen;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 60px;
+    margin: 50px 0;
+}
+
+h2,
+h3,
+h4 {
+    margin: 40px 0;
+}
+
+p {
+    text-indent: 2em;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.foot-nav {
+    margin: 70px 0;
+}
+
+.foot-nav::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.prev {
+    float: right;
+    margin-right: 10px;
+    color: skyblue;
+    cursor: pointer;
+}
+
+.next {
+    float: right;
+    color: skyblue;
+    cursor: pointer;
+}
+
+
+code {
+    white-space: pre;
+}

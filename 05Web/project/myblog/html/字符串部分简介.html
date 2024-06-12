@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/paging.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container1">
+            <a href="index.html">
+            <div>OI-Wiki</div>
+            </a>
+            <ul class="top-nav">
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="比赛相关简介.html">比赛相关简介</a></li>
+                            <li><a href="赛事.html">赛事</a></li>
+                            <li><a href="题型.html">题型</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span>比赛相关</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="搜索算法简介.html">搜索部分简介</a></li>
+                            <li><a href="搜索算法.html">搜索算法</a></li>
+                            <li><a href="搜索算法优化.html">优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>动态规划</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="动态规划简介.html">简介</a></li>
+                            <li><a href="动态规划基础.html">动态规划基础</a></li>
+                            <li><a href="记忆化搜索.html">记忆化搜索</a></li>
+                            <li><a href="DP.html">DP</a></li>
+                            <li><a href="DP优化.html">DP优化</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>数据结构</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="数据结构简介.html">简介</a></li>
+                            <li><a href="基本数据结构.html">基础数据结构</a></li>
+                            <li><a href="进阶数据结构.html">进阶数据结构</a></li>
+                            <li><a href="树形数据结构.html">树形数据结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>字符串</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="字符串部分简介.html">字符串部分简介</a></li>
+                            <li><a href="字符串哈希.html">字符串哈希</a></li>
+                            <li><a href="字典树.html">字典树</a></li>
+                            <ul>
+                    </div>
+                </li>
+                </li>
+                <li>
+                    <span>图论</span>
+                    <div class="sec-nav">
+                        <ul>
+                            <li><a href="图论相关概念.html">图论相关概念</a></li>
+                            <li><a href="图的存储.html">图的存储</a></li>
+                            <li><a href="树上问题.html">树上问题</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+
+        <h1>
+
+            字符串部分简介
+        </h1>
+        <p>
+
+            字符串，就是由字符连接而成的序列。
+        </p>
+        <p>
+
+            常见的字符串问题包括字符串匹配问题、子串相关问题、前缀/后缀相关问题、回文串相关问题、子序列相关问题等。
+        </p>
+        <h2>
+
+            定义
+        </h2>
+        <h3>
+
+            字符集
+        </h3>
+        <p>
+
+            一个 字符集 \Sigma 是一个建立了 全序 关系的集合，也就是说，\Sigma 中的任意两个不同的元素 \alpha 和 \beta 都可以比较大小，要么 \alpha<\beta，要么
+                \beta<\alpha。字符集 \Sigma 中的元素称为字符。 </p>
+                <h3>
+
+                    字符串
+                </h3>
+                <p>
+
+                    一个 字符串 S 是将 n 个字符顺次排列形成的序列，n 称为 S 的长度，表示为 |S|。
+                </p>
+                <p>
+
+                    如果字符串下标从 1 开始计算，S 的第 i 个字符表示为 S[i]；
+                </p>
+                <p>
+
+                    如果字符串下标从 0 开始计算，S 的第 i 个字符表示为 S[i-1]。
+                </p>
+                <h3>
+
+                    子串
+                </h3>
+                <p>
+
+                    字符串 S 的 子串 ，S[i..j]，i≤j，表示 S 串中从 i 到 j 这一段，也就是顺次排列 S[i],S[i+1],\ldots,S[j] 形成的字符串。
+                </p>
+                <p>
+
+                    有时也会用 S[i..j]，i>j 来表示空串。
+                </p>
+                <h3>
+
+                    子序列
+                </h3>
+                <p>
+
+                    字符串 S 的 子序列 是从 S 中将若干元素提取出来并不改变相对位置形成的序列，即 S[p_1],S[p_2],\ldots,S[p_k]，1\le p_1< p_2<\cdots<
+                        p_k\le|S|。 </p>
+                        <h3>
+
+                            后缀
+                        </h3>
+                        <p>
+
+                            后缀 是指从某个位置 i 开始到整个串末尾结束的一个特殊子串。字符串 S 的从 i 开头的后缀表示为 \textit{Suffix(S,i)}，也就是
+                            \textit{Suffix(S,i)}=S[i..|S|-1]。
+                        </p>
+
+                        <p>
+
+                            真后缀 指除了 S 本身的 S 的后缀。
+                        </p>
+
+                        <p>
+
+                            举例来说，字符串 abcabcd 的所有后缀为 {d, cd, bcd, abcd, cabcd, bcabcd, abcabcd}，而它的真后缀为 {d, cd, bcd,
+                            abcd,
+                            cabcd, bcabcd}。
+                        </p>
+                        <h3>
+
+                            前缀
+                        </h3>
+                        <p>
+
+                            真前缀 指除了 S 本身的 S 的前缀。
+                        </p>
+
+                        <p>
+
+                            举例来说，字符串 abcabcd 的所有前缀为 {a, ab, abc, abca, abcab, abcabc, abcabcd}, 而它的真前缀为 {a, ab, abc,
+                            abca,
+                            abcab, abcabc}。
+                        </p>
+                        <h3>
+
+                            字典序
+                        </h3>
+                        <p>
+
+                            以第 i 个字符作为第 i 关键字进行大小比较，空字符小于字符集内任何字符（即：a< aa）。 </p>
+                                <div class="container2">
+                                    <div class="foot-nav">
+                                        <a href="字符串哈希.html" class="next">下一篇</a>
+                                        <a href="树形数据结构.html" class="prev">上一篇</a>
+                                    </div>
+                                </div>
+    </div>
+</body>
+
+</html>

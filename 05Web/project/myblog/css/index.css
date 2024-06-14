@@ -8,6 +8,10 @@ a {
     color: black;
 }
 
+a:hover {
+    color: #ff6347;
+}
+
 ul, ol {
     list-style: none;
 }
@@ -28,6 +32,9 @@ ul, ol {
 
 body {
     overflow-x: hidden;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
 }
 
 html, body {
@@ -41,6 +48,15 @@ html, body {
     margin: 0 auto;
     border-radius: 30px;
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.shadow {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.no-shadow {
+    box-shadow: 0 0;
 }
 
 .mgtop20px {
@@ -139,8 +155,8 @@ html, body {
     color: #000;
 }
 
-#blogroll a:hover {
-    color: rgb(255, 66, 66);
+#blogroll a:hover{
+    color: #ff6347;
 }
 
 #blogroll table {
@@ -190,7 +206,7 @@ html, body {
     width: 750px;
     height: 300px;
     visibility: hidden;
-    background-color: yellowgreen;
+    background-color: rgba(135, 207, 235, 0.9);
 }
 
 .sec-menu li{
@@ -203,7 +219,15 @@ html, body {
 }
 
 #menu>ul>li:hover .fst-menu {
-    background-color: yellowgreen;
+    background-color: skyblue;
+}
+
+#menu>ul>li:hover .fst-menu::after {
+    content: "✦";
+    float: right;
+    font-weight: bolder;
+    padding-right: 10px;
+    color: red;
 }
 
 #menu>ul>li:hover .sec-menu {
@@ -225,10 +249,6 @@ html, body {
     font-weight: bolder;
 }
 
-#menu a:hover {
-    color: red;
-}
-
 #nav {
     position: fixed;
     left: 20px;
@@ -239,6 +259,16 @@ html, body {
     font-size: 20px;
     padding: 30px;
     color: white;
+}
+
+#nav a:hover {
+    color: #ff6347;
+}
+
+#nav a:hover::after {
+    float: right;
+    content: "<=";
+    font-weight: bolder;
 }
 
 #nav div:first-child {
@@ -254,10 +284,6 @@ html, body {
 
 #nav a {
     color: white;
-}
-
-#nav a:hover {
-    color: red;
 }
 
 #form {

@@ -1,0 +1,160 @@
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* General Styles */
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #2c3e50;
+}
+
+/* Top Bar */
+.topbar {
+    background-color: #2c3e50;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.topbar .container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar .container1 a div {
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.topbar .container1 a div:hover {
+    color: #3498db;
+}
+
+.top-nav {
+    display: flex;
+    list-style: none;
+}
+
+.top-nav li {
+    position: relative;
+    margin: 0 15px;
+    transition: background-color 0.3s;
+}
+
+.top-nav li:hover {
+    background-color: #34495e;
+}
+
+.top-nav li span {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.top-nav li:hover span {
+    color: #3498db;
+}
+
+/* Secondary Navigation */
+.sec-nav {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #34495e;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.top-nav li:hover .sec-nav {
+    display: block;
+}
+
+.sec-nav a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sec-nav a:hover {
+    color: #2c3e50;
+    background-color: #ecf0f1;
+}
+
+/* Content */
+.container2 {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2, h3, h4 {
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+p {
+    margin: 10px 0;
+    line-height: 1.8;
+    font-size: 16px;
+    text-indent: 2em;
+}
+
+code {
+    display: block;
+    background: #ecf0f1;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 3px solid #3498db;
+    overflow-x: auto;
+}
+
+/* Footer Navigation */
+.foot-nav {
+    margin: 40px 0;
+    text-align: right;
+}
+
+.foot-nav a {
+    color: #3498db;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.foot-nav a:hover {
+    color: #2c3e50;
+}

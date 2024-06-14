@@ -24,7 +24,7 @@ li {
 
 .container1 {
     width: 1200px;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 .container2 {
@@ -114,24 +114,6 @@ li {
     background-color: yellowgreen;
 }
 
-h1 {
-    font-weight: 300;
-    font-size: 60px;
-    margin: 50px 0;
-}
-
-h2,
-h3,
-h4 {
-    margin: 40px 0;
-}
-
-p {
-    text-indent: 2em;
-    margin: 10px 0;
-    font-size: 16px;
-}
-
 .foot-nav {
     margin: 70px 0;
 }
@@ -155,7 +137,55 @@ p {
     cursor: pointer;
 }
 
+.container2 {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2, h3, h4 {
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+p {
+    margin: 10px 0;
+    line-height: 1.8;
+    font-size: 16px;
+    text-indent: 2em;
+}
 
 code {
+    display: block;
+    background: #ecf0f1;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 3px solid #3498db;
+    overflow-x: auto;
     white-space: pre;
+}
+
+.foot-nav {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.foot-nav a {
+    color: #3498db;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.foot-nav a:hover {
+    color: #2c3e50;
 }
